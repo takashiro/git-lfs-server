@@ -12,7 +12,7 @@ if($input){
 if($input['operation'] == 'upload'){
 	$objects = $input['objects'];
 	foreach($objects as &$o){
-		$o['authenticated'] = true;
+		$o['authenticated'] = false;
 		if(!file_exists('data/objects/'.$o['oid'])){
 			$o['actions']['upload'] = array(
 				'href' => $server_url.'/upload?oid='.$o['oid'],
@@ -31,7 +31,7 @@ if($input['operation'] == 'upload'){
 }elseif($input['operation'] == 'download'){
 	$objects = $input['objects'];
 	foreach($objects as &$o){
-		$o['authenticated'] = true;
+		$o['authenticated'] = false;
 
 		if(file_exists('data/objects/'.$o['oid'])){
 			$o['actions']['download'] = array(
